@@ -5,7 +5,7 @@ export default function HeaderOne({ color }) {
     <header
       className={styles.containerHeader}
       style={{
-        backgroundColor: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+        backgroundColor: `rgba(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b} , ${color.metaColor.a})`,
       }}
     >
       <div className={styles.logo}>LOGO</div>

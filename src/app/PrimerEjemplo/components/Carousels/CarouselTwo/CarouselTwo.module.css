@@ -1,0 +1,10 @@
+.bannerImage {
+  width: auto;
+  max-height: 80vh;
+  object-fit: cover;
+}
+@media (width < 768px) {
+  .bannerImage {
+    max-height: 50vh;
+  }
+}

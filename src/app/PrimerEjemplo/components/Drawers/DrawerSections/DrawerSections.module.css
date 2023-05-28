@@ -1,0 +1,14 @@
+.itemContainer {
+  padding: 20px;
+  border: 1px solid rgba(90, 89, 89, 0.233);
+  border-radius: 5px;
+  display: flex;
+  background-color: #e6e4e4;
+  margin: 5px auto;
+  align-items: center;
+}
+.itemContainer p {
+  color: #333;
+  font-weight: 500;
+  margin: 0 10px;
+}
