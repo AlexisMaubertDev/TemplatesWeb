@@ -1,0 +1,48 @@
+.containerHeader {
+  width: 100vw;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  padding: 0 30px;
+  align-items: center;
+  border-bottom: 3px solid rgba(20, 20, 20, 0.075);
+  position: fixed;
+  z-index: 999;
+}
+.containerNav {
+  display: flex;
+  justify-content: space-around;
+  gap: 60px;
+}
+
+.containerNav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.containerNav ul li {
+  cursor: pointer;
+}
+
+.containerNav ul li::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+.containerNav ul li:hover::after {
+  width: 100%;
+}
+
+.logo {
+  font-weight: bold;
+}
+@media (width < 768px) {
+  .containerNav {
+    gap: 20px;
+  }
+}

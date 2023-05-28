@@ -1,0 +1,43 @@
+.containerHeader {
+  width: 100vw;
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 20%;
+  align-items: center;
+  border-bottom: 3px solid rgba(20, 20, 20, 0.075);
+  position: fixed;
+  z-index: 999;
+}
+.logo {
+  font-weight: bold;
+}
+
+.containerNav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.containerNav ul li {
+  cursor: pointer;
+  transition: all 2s ease;
+}
+
+.containerNav ul li::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+.containerNav ul li:hover::after {
+  width: 100%;
+}
+@media (width < 768px) {
+  .containerHeader {
+    padding: 0 20px;
+  }
+}

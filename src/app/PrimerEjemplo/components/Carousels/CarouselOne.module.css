@@ -1,0 +1,11 @@
+.thumbnailImage {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.bannerImage {
+  width: auto;
+  height: 851px;
+  object-fit: cover;
+}

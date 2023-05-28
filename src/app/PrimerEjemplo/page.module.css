@@ -1,0 +1,65 @@
+.bodyContainer {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  flex-direction: column;
+}
+.mainContainer {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+}
+.botonColor {
+  position: fixed;
+  bottom: 1vh;
+  left: 5px;
+  width: 9rem;
+}
+.bannerImage {
+  width: auto;
+  max-height: 80vh;
+  object-fit: cover;
+}
+.firstSection {
+  padding: 30px;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 60%;
+}
+.firstSection h2 {
+  font-size: 30px;
+  margin: 15px 0;
+}
+.firstSection h3 {
+  font-size: 20px;
+  margin: 10px 0 30px 0;
+  cursor: pointer;
+  display: inline-block;
+}
+.firstSection h3::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: black;
+  transition: 300ms;
+}
+
+.firstSection h3:hover::after {
+  width: 100%;
+}
+
+.thumbnailImage {
+  width: 100%;
+  padding: 5px;
+  height: auto;
+}
+@media (width < 768px) {
+  .bannerImage {
+    max-height: 50vh;
+  }
+  .firstSection {
+    width: 95%;
+  }
+}
