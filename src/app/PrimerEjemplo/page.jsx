@@ -120,7 +120,14 @@ export default function PrimerEjemplo() {
           2: <HeaderTwo color={mainColor} />,
         }[selectedHeader]
       }
-      <main className={styles.mainContainer}>
+      <main
+        className={styles.mainContainer}
+        style={
+          selectedHeader !== 0 && selectedHeader !== 3
+            ? { marginTop: "64px" }
+            : null
+        }
+      >
         {
           {
             0: null,
