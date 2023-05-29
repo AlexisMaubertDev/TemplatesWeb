@@ -43,7 +43,7 @@ export default function PrimerEjemplo() {
   const [openSections, setOpenSections] = useState(false);
 
   const [selectedHeader, setSelectedHeader] = useState(
-    searchParams.get("header") || 1
+    searchParams.get("header") || 0
   );
   const [selectedBanner, setSelectedBanner] = useState(
     searchParams.get("banner") || 1
@@ -123,7 +123,7 @@ export default function PrimerEjemplo() {
       <main
         className={styles.mainContainer}
         style={
-          selectedHeader !== 0 && selectedHeader !== 3
+          selectedHeader != 0 && selectedHeader != 3
             ? { marginTop: "64px" }
             : null
         }

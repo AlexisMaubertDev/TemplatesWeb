@@ -33,8 +33,8 @@ export default function DrawerSections({
           defaultValue={"Selecciona un banner"}
           options={[
             { value: 0, label: "Sin Banner" },
-            { value: 1, label: "Banner Carrusel completo" },
-            { value: 2, label: "Carrusel e imágenes" },
+            { value: 1, label: "Carrusel e imágenes" },
+            { value: 2, label: "Banner Carrusel completo" },
           ]}
           style={{ minWidth: "50%" }}
         />
