@@ -15,6 +15,7 @@ export default function CarouselOne({ img }) {
             return (
               <Image
                 src={item.src}
+                key={item.src}
                 width={4896}
                 height={3264}
                 alt="Thumbnail Image"
@@ -27,14 +28,12 @@ export default function CarouselOne({ img }) {
           })}
         </Col>
         <Col span={19}>
-          <Carousel
-            ref={ref}
-            dotPosition="left"
-          >
+          <Carousel ref={ref} dotPosition="left">
             {img.map((item) => {
               return (
                 <Image
                   src={item.src}
+                  key={item.src}
                   width={4896}
                   height={3264}
                   alt="Template Image"

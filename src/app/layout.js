@@ -1,8 +1,4 @@
-
 import "./globals.css";
-import { Roboto } from "next/font/google";
-
-const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 export const metadata = {
   title: "Crea tu propia página",
@@ -12,8 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
-      <body className={roboto.className}>{children}</body>
+      <body className="">{children}</body>
     </html>
   );
 }

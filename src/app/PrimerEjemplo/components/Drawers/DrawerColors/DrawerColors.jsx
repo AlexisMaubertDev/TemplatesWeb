@@ -1,8 +1,13 @@
-import { Drawer, ColorPicker } from "antd";
+import { Drawer, ColorPicker, Select } from "antd";
 import styles from "./DrawersColors.module.css";
 import { useState } from "react";
 
-export default function DrawerColors({ open, onClose, colores }) {
+export default function DrawerColors({
+  open,
+  onClose,
+  colores,
+  setSelectedFont,
+}) {
   const [format, setFormat] = useState("rgb");
 
   return (
@@ -12,9 +17,22 @@ export default function DrawerColors({ open, onClose, colores }) {
       onClose={onClose}
       open={open}
     >
+      <div className={styles.colorContainer}>
+        <Select
+          onChange={(value) => setSelectedFont(value)}
+          defaultValue={"roboto"}
+          options={[
+            { value: "roboto", label: "Roboto" },
+            { value: "boogaloo", label: "Boogaloo" },
+            { value: "enriqueta", label: "Enriqueta" },
+          ]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Fuente</p>
+      </div>
       {colores.map((item) => {
         return (
-          <div className={styles.colorContainer}>
+          <div className={styles.colorContainer} key={item.titulo}>
             <ColorPicker
               value={item.color}
               onChange={item.setColor}

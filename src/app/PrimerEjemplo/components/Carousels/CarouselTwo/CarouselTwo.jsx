@@ -13,6 +13,7 @@ export default function CarouselTwo({ img }) {
             height={3264}
             alt="Template Image"
             className={styles.bannerImage}
+            key={item.src}
           />
         );
       })}

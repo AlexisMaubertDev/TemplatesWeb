@@ -20,7 +20,12 @@ export default function SectionOne({ color, img }) {
       <Row gutter={[16, 16]} justify={"center"}>
         {img.map((item) => {
           return (
-            <Col xl={{ span: 8 }} sm={{ span: 12 }} xs={{ span: 22 }}>
+            <Col
+              xl={{ span: 8 }}
+              sm={{ span: 12 }}
+              xs={{ span: 22 }}
+              key={item.title}
+            >
               <Card
                 hoverable
                 cover={

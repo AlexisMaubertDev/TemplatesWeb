@@ -6,41 +6,17 @@ import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
 import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
 import { useState } from "react";
 import { Button } from "antd";
-import sqrImg from "../../../public/img/sqr1.jpeg";
-import banner1 from "../../../public/img/1.jpg";
-import banner2 from "../../../public/img/2.jpg";
-import banner3 from "../../../public/img/3.jpg";
-import banner4 from "../../../public/img/4.jpg";
-import thumbnail1 from "../../../public/img/t1.png";
-import thumbnail2 from "../../../public/img/t2.png";
-import thumbnail3 from "../../../public/img/t3.png";
 import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
 import { useSearchParams } from "next/navigation";
 import CarouselTwo from "./components/Carousels/CarouselTwo/CarouselTwo";
 import SectionOne from "./components/Sections/SectionOne/SectionOne";
 import SectionTwo from "./components/Sections/SectionTwo/SectionTwo";
 import useColorState from "./hook/useColorState";
+import useImg from "./hook/useImg";
+import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
 
 export default function PrimerEjemplo() {
   const searchParams = useSearchParams();
-  const img = [banner1, banner2, banner3, banner4];
-  const img2 = [
-    {
-      img: thumbnail1,
-      title: "E-commerce",
-      desc: "Todo lo que necesitas para tu página de ventas OnLine.",
-    },
-    {
-      img: thumbnail2,
-      title: "Portfolio",
-      desc: "Toda tu información en un sólo lugar. Galería de tus proyectos y más.",
-    },
-    {
-      img: thumbnail3,
-      title: "Personalizados al 100%",
-      desc: "Comentanos lo que necesitas y nosotros lo vamos a hacer posible.",
-    },
-  ];
 
   const [openColors, setOpenColors] = useState(false);
   const [openSections, setOpenSections] = useState(false);
@@ -51,6 +27,7 @@ export default function PrimerEjemplo() {
   const [selectedBanner, setSelectedBanner] = useState(
     searchParams.get("banner") || 1
   );
+  const [selectedFont, setSelectedFont] = useState("roboto");
   const sections = searchParams.getAll("section");
   const [selectedSection, setSelectedSection] = useState(
     sections.length === 0 ? [2] : sections
@@ -59,9 +36,19 @@ export default function PrimerEjemplo() {
   const { fontColor, bgColor, mainColor, secondaryColor, colores } =
     useColorState();
 
+  const { img, img2, sqrImg } = useImg();
+
   return (
     <div
-      className={styles.bodyContainer}
+      className={
+        styles.bodyContainer +
+        " " +
+        {
+          roboto: roboto.className,
+          boogaloo: boogaloo.className,
+          enriqueta: enriqueta.className,
+        }[selectedFont]
+      }
       style={{
         color: `rgb(${fontColor.metaColor.r}, ${fontColor.metaColor.g}, ${fontColor.metaColor.b})`,
         backgroundColor: `rgb(${bgColor.metaColor.r}, ${bgColor.metaColor.g}, ${bgColor.metaColor.b})`,
@@ -92,13 +79,14 @@ export default function PrimerEjemplo() {
         {selectedSection.map((section) => {
           return {
             0: null,
-            1: <SectionOne color={secondaryColor} img={img2} />,
+            1: <SectionOne color={secondaryColor} img={img2} key={1} />,
             2: (
               <SectionTwo
                 color={mainColor}
                 fontColor={fontColor}
                 secondaryColor={secondaryColor}
                 img={sqrImg}
+                key={2}
               />
             ),
           }[section];
@@ -109,6 +97,7 @@ export default function PrimerEjemplo() {
           open={openColors}
           onClose={() => setOpenColors(false)}
           colores={colores}
+          setSelectedFont={setSelectedFont}
         />
         <DrawerSections
           open={openSections}
@@ -123,14 +112,14 @@ export default function PrimerEjemplo() {
             onClick={() => setOpenColors(true)}
             className={styles.botonColor}
           >
-            Personalizar Colores
+            Personalizar
           </Button>
           <Button
             type="primary"
             onClick={() => setOpenSections(true)}
             className={styles.botonColor}
           >
-            Personalizar Secciones
+            Secciones
           </Button>
         </div>
       </aside>
