@@ -58,6 +58,7 @@ export default function DrawerSections({
             { value: 0, label: "Sin secciones" },
             { value: 1, label: "Sección 1" },
             { value: 2, label: "Sección 2" },
+            { value: 3, label: "Sección 3" },
           ]}
           style={{ minWidth: "50%" }}
         />

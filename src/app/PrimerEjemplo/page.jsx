@@ -11,6 +11,7 @@ import { useSearchParams } from "next/navigation";
 import CarouselTwo from "./components/Carousels/CarouselTwo/CarouselTwo";
 import SectionOne from "./components/Sections/SectionOne/SectionOne";
 import SectionTwo from "./components/Sections/SectionTwo/SectionTwo";
+import SectionThree from "./components/Sections/SectionThree/SectionThree";
 import useColorState from "./hook/useColorState";
 import useImg from "./hook/useImg";
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
@@ -87,6 +88,20 @@ export default function PrimerEjemplo() {
                 secondaryColor={secondaryColor}
                 img={sqrImg}
                 key={2}
+              />
+            ),
+            3: (
+              <SectionThree
+                color={mainColor}
+                key={3}
+                titulo1={"Ubicación"}
+                titulo2={"No se que poner acá"}
+                parrafo1={"Tantos párrafos vas a poner"}
+                parrafo2={"lorem ipsum"}
+                parrafo3={"lorem ipsum"}
+                mapa={
+                  "https://maps.google.com/?ll=23.135249,-82.359685&z=14&t=m&output=embed"
+                }
               />
             ),
           }[section];
