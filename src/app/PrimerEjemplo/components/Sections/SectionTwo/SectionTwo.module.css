@@ -6,7 +6,7 @@
   padding: 0 7rem;
   border-radius: 10px;
   width: 90%;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .nosotrosContainer h1 {
@@ -35,7 +35,6 @@
   text-transform: uppercase;
   font-weight: bold;
   border-radius: 5px;
-  color: black;
 }
 
 .nosotrosContainer button:hover {
@@ -56,7 +55,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .nosotrosContainer {
     width: 60%;
   }

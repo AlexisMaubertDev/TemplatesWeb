@@ -18,7 +18,7 @@ export default function DrawerSections({
       <div className={styles.itemContainer}>
         <Select
           onChange={(value) => setSelectedHeader(value)}
-          defaultValue={"Selecciona una cabecera"}
+          defaultValue={1}
           options={[
             { value: 0, label: "Sin cabecera" },
             { value: 1, label: "Separados" },
@@ -31,7 +31,7 @@ export default function DrawerSections({
       <div className={styles.itemContainer}>
         <Select
           onChange={(value) => setSelectedBanner(value)}
-          defaultValue={"Selecciona un banner"}
+          defaultValue={1}
           options={[
             { value: 0, label: "Sin Banner" },
             { value: 1, label: "Carrusel e imágenes" },

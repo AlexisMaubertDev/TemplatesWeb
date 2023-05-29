@@ -1,7 +1,7 @@
 import ImageWScrollAnim from "../../ImageWScrollAnim/ImageWScrollAnim";
 import styles from "./SectionTwo.module.css";
 
-export default function SectionTwo({ color, secondaryColor, img }) {
+export default function SectionTwo({ color, fontColor, secondaryColor, img }) {
   return (
     <main
       className={styles.nosotrosContainer}
@@ -36,6 +36,7 @@ export default function SectionTwo({ color, secondaryColor, img }) {
         style={{
           borderColor: `rgb(${secondaryColor.metaColor.r}, ${secondaryColor.metaColor.g}, ${secondaryColor.metaColor.b})`,
           backgroundColor: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+          color: `rgb(${fontColor.metaColor.r}, ${fontColor.metaColor.g}, ${fontColor.metaColor.b})`,
         }}
       >
         Ver Más

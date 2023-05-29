@@ -19,6 +19,7 @@ import { useSearchParams } from "next/navigation";
 import CarouselTwo from "./components/Carousels/CarouselTwo/CarouselTwo";
 import SectionOne from "./components/Sections/SectionOne/SectionOne";
 import SectionTwo from "./components/Sections/SectionTwo/SectionTwo";
+import useColorState from "./hook/useColorState";
 
 export default function PrimerEjemplo() {
   const searchParams = useSearchParams();
@@ -54,63 +55,9 @@ export default function PrimerEjemplo() {
   const [selectedSection, setSelectedSection] = useState(
     sections.length === 0 ? [2] : sections
   );
-  console.log(selectedSection);
-  const [fontColor, setFontColor] = useState({
-    metaColor: {
-      r: 0,
-      g: 0,
-      b: 0,
-      a: 1,
-    },
-  });
-  const [bgColor, setBgColor] = useState({
-    metaColor: {
-      r: 100,
-      g: 100,
-      b: 100,
-      a: 1,
-    },
-  });
-  const [mainColor, setMainColor] = useState({
-    metaColor: {
-      r: 255,
-      g: 255,
-      b: 255,
-      a: 1,
-    },
-  });
-  const [secondaryColor, setSecondaryColor] = useState({
-    metaColor: {
-      r: 255,
-      g: 255,
-      b: 255,
-      a: 1,
-    },
-  });
 
-  const colores = [
-    { titulo: "Color de Fuente", color: fontColor, setColor: setFontColor },
-    { titulo: "Color de Fondo", color: bgColor, setColor: setBgColor },
-    { titulo: "Color Principal", color: mainColor, setColor: setMainColor },
-    {
-      titulo: "Color Secundario",
-      color: secondaryColor,
-      setColor: setSecondaryColor,
-    },
-  ];
-
-  const showDrawerColors = () => {
-    setOpenColors(true);
-  };
-  const onCloseColors = () => {
-    setOpenColors(false);
-  };
-  const showDrawerSections = () => {
-    setOpenSections(true);
-  };
-  const onCloseSections = () => {
-    setOpenSections(false);
-  };
+  const { fontColor, bgColor, mainColor, secondaryColor, colores } =
+    useColorState();
 
   return (
     <div
@@ -149,6 +96,7 @@ export default function PrimerEjemplo() {
             2: (
               <SectionTwo
                 color={mainColor}
+                fontColor={fontColor}
                 secondaryColor={secondaryColor}
                 img={sqrImg}
               />
@@ -159,12 +107,12 @@ export default function PrimerEjemplo() {
       <aside>
         <DrawerColors
           open={openColors}
-          onClose={onCloseColors}
+          onClose={() => setOpenColors(false)}
           colores={colores}
         />
         <DrawerSections
           open={openSections}
-          onClose={onCloseSections}
+          onClose={() => setOpenSections(false)}
           setSelectedHeader={setSelectedHeader}
           setSelectedBanner={setSelectedBanner}
           setSelectedSection={setSelectedSection}
@@ -172,14 +120,14 @@ export default function PrimerEjemplo() {
         <div className={styles.containerBotones}>
           <Button
             type="primary"
-            onClick={showDrawerColors}
+            onClick={() => setOpenColors(true)}
             className={styles.botonColor}
           >
             Personalizar Colores
           </Button>
           <Button
             type="primary"
-            onClick={showDrawerSections}
+            onClick={() => setOpenSections(true)}
             className={styles.botonColor}
           >
             Personalizar Secciones

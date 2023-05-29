@@ -7,9 +7,9 @@ export default function CarouselOne({ img }) {
   const ref = useRef();
 
   return (
-    <section>
+    <section className={styles.container}>
       <Row gutter={16}>
-        <Col span={4}>
+        <Col span={5}>
           {img.map((item) => {
             const index = img.indexOf(item);
             return (
@@ -26,8 +26,11 @@ export default function CarouselOne({ img }) {
             );
           })}
         </Col>
-        <Col span={20}>
-          <Carousel ref={ref} dotPosition="left">
+        <Col span={19}>
+          <Carousel
+            ref={ref}
+            dotPosition="left"
+          >
             {img.map((item) => {
               return (
                 <Image

@@ -9,3 +9,19 @@
   height: 851px;
   object-fit: cover;
 }
+@media (width <= 1024px) {
+  .bannerImage {
+    height: 500px;
+  }
+  .thumbnailImage {
+    height: 122px;
+  }
+}
+@media (width <= 768px) {
+  .bannerImage {
+    height: 350px;
+  }
+  .thumbnailImage {
+    height: 84.4px;
+  }
+}
