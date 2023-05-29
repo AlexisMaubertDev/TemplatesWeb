@@ -6,6 +6,7 @@ export default function DrawerSections({
   onClose,
   setSelectedBanner,
   setSelectedHeader,
+  setSelectedSection,
 }) {
   return (
     <Drawer
@@ -39,6 +40,28 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Banner</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
+          mode="multiple"
+          allowClear
+          onSelect={(value) =>
+            setSelectedSection((current) => [...current, value])
+          }
+          onDeselect={(value) =>
+            setSelectedSection((current) => current.filter((x) => x !== value))
+          }
+          onClear={() => setSelectedSection([])}
+          defaultValue={2}
+          placeholder="Elegí las secciones"
+          options={[
+            { value: 0, label: "Sin secciones" },
+            { value: 1, label: "Sección 1" },
+            { value: 2, label: "Sección 2" },
+          ]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Secciones</p>
       </div>
     </Drawer>
   );

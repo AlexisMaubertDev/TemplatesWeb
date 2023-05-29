@@ -4,7 +4,6 @@ import styles from "./CarouselOne.module.css";
 import { useRef } from "react";
 
 export default function CarouselOne({ img }) {
-
   const ref = useRef();
 
   return (
@@ -28,7 +27,7 @@ export default function CarouselOne({ img }) {
           })}
         </Col>
         <Col span={20}>
-          <Carousel ref={ref}>
+          <Carousel ref={ref} dotPosition="left">
             {img.map((item) => {
               return (
                 <Image

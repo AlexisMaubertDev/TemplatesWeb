@@ -6,6 +6,7 @@ import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
 import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
 import { useState } from "react";
 import { Button } from "antd";
+import sqrImg from "../../../public/img/sqr1.jpeg";
 import banner1 from "../../../public/img/1.jpg";
 import banner2 from "../../../public/img/2.jpg";
 import banner3 from "../../../public/img/3.jpg";
@@ -17,6 +18,7 @@ import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
 import { useSearchParams } from "next/navigation";
 import CarouselTwo from "./components/Carousels/CarouselTwo/CarouselTwo";
 import SectionOne from "./components/Sections/SectionOne/SectionOne";
+import SectionTwo from "./components/Sections/SectionTwo/SectionTwo";
 
 export default function PrimerEjemplo() {
   const searchParams = useSearchParams();
@@ -43,11 +45,16 @@ export default function PrimerEjemplo() {
   const [openSections, setOpenSections] = useState(false);
 
   const [selectedHeader, setSelectedHeader] = useState(
-    searchParams.get("header") || 0
+    searchParams.get("header") || 1
   );
   const [selectedBanner, setSelectedBanner] = useState(
     searchParams.get("banner") || 1
   );
+  const sections = searchParams.getAll("section");
+  const [selectedSection, setSelectedSection] = useState(
+    sections.length === 0 ? [2] : sections
+  );
+  console.log(selectedSection);
   const [fontColor, setFontColor] = useState({
     metaColor: {
       r: 0,
@@ -58,9 +65,9 @@ export default function PrimerEjemplo() {
   });
   const [bgColor, setBgColor] = useState({
     metaColor: {
-      r: 255,
-      g: 255,
-      b: 255,
+      r: 100,
+      g: 100,
+      b: 100,
       a: 1,
     },
   });
@@ -135,7 +142,19 @@ export default function PrimerEjemplo() {
             2: <CarouselTwo img={img} />,
           }[selectedBanner]
         }
-        <SectionOne color={secondaryColor} img={img2} />
+        {selectedSection.map((section) => {
+          return {
+            0: null,
+            1: <SectionOne color={secondaryColor} img={img2} />,
+            2: (
+              <SectionTwo
+                color={mainColor}
+                secondaryColor={secondaryColor}
+                img={sqrImg}
+              />
+            ),
+          }[section];
+        })}
       </main>
       <aside>
         <DrawerColors
@@ -148,6 +167,7 @@ export default function PrimerEjemplo() {
           onClose={onCloseSections}
           setSelectedHeader={setSelectedHeader}
           setSelectedBanner={setSelectedBanner}
+          setSelectedSection={setSelectedSection}
         />
         <div className={styles.containerBotones}>
           <Button
