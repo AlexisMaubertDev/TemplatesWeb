@@ -8,12 +8,25 @@ export default function SectionThree({
   parrafo2,
   parrafo3,
   color,
+  secondaryColor,
 }) {
   return (
-    <section className={styles.ubicacionContainer}>
+    <section
+      className={styles.ubicacionContainer}
+      style={{
+        backgroundColor: `rgb(${color.metaColor.r},${color.metaColor.g},${color.metaColor.b})`,
+      }}
+    >
       <div className={styles.ubicacionInfo}>
         <h2 className={styles.titulo1}>{titulo1}</h2>
-        <p className={styles.direccion}>{parrafo1}</p>
+        <p
+          className={styles.direccion}
+          style={{
+            color: `rgb(${secondaryColor.metaColor.r},${secondaryColor.metaColor.g},${secondaryColor.metaColor.b})`,
+          }}
+        >
+          {parrafo1}
+        </p>
       </div>
 
       <div className={styles.ubicacionMapa}>
@@ -30,8 +43,20 @@ export default function SectionThree({
 
       <div className={styles.ubicacionInfo}>
         <h2 className={styles.titulo2}>{titulo2}</h2>
-        <p>{parrafo2}</p>
-        <p>{parrafo3}</p>
+        <p
+          style={{
+            color: `rgb(${secondaryColor.metaColor.r},${secondaryColor.metaColor.g},${secondaryColor.metaColor.b})`,
+          }}
+        >
+          {parrafo2}
+        </p>
+        <p
+          style={{
+            color: `rgb(${secondaryColor.metaColor.r},${secondaryColor.metaColor.g},${secondaryColor.metaColor.b})`,
+          }}
+        >
+          {parrafo3}
+        </p>
       </div>
     </section>
   );

@@ -92,7 +92,8 @@ export default function PrimerEjemplo() {
             ),
             3: (
               <SectionThree
-                color={mainColor}
+                color={secondaryColor}
+                secondaryColor={mainColor}
                 key={3}
                 titulo1={"Ubicación"}
                 titulo2={"No se que poner acá"}
@@ -100,7 +101,7 @@ export default function PrimerEjemplo() {
                 parrafo2={"lorem ipsum"}
                 parrafo3={"lorem ipsum"}
                 mapa={
-                  "https://maps.google.com/?ll=23.135249,-82.359685&z=14&t=m&output=embed"
+                  "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d49866.050276885915!2d-71.50660211503384!3d-42.06531157655123!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sus!4v1685391286444!5m2!1ses-419!2sus"
                 }
               />
             ),
