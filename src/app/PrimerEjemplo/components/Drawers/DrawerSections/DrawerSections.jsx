@@ -10,6 +10,7 @@ export default function DrawerSections({
   setSelectedFooter,
   setSelectedForms,
   setSelectedSliders,
+  setSelectedButtons
 }) {
   return (
     <Drawer
@@ -75,6 +76,28 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Secciones</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
+          mode="multiple"
+          allowClear
+          onSelect={(value) =>
+            setSelectedButtons((current) => [...current, value])
+          }
+          onDeselect={(value) =>
+            setSelectedButtons((current) => current.filter((x) => x !== value))
+          }
+          onClear={() => setSelectedButtons([])}
+          defaultValue={0}
+          placeholder="Elegí los botones"
+          options={[
+            { value: 0, label: "Sin botones" },
+            { value: 1, label: "WhatsApp" },
+            { value: 2, label: "Scroll Arriba" },
+          ]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Botones</p>
       </div>
       <div className={styles.itemContainer}>
         <Select
