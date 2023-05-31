@@ -26,15 +26,27 @@ export default function PrimerEjemplo() {
   const [selectedHeader, setSelectedHeader] = useState(
     searchParams.get("header") || 1
   );
+  const [selectedFooter, setSelectedFooter] = useState(
+    searchParams.get("footer") || 1
+  );
   const [selectedBanner, setSelectedBanner] = useState(
     searchParams.get("banner") || 1
   );
+
   const [selectedFont, setSelectedFont] = useState("roboto");
   const sections = searchParams.getAll("section");
   const [selectedSection, setSelectedSection] = useState(
     sections.length === 0 ? [2] : sections
   );
 
+  const forms = searchParams.getAll("forms");
+  const [selectedForms, setSelectedForms] = useState(
+    forms.length === 0 ? [0] : forms
+  );
+  const sliders = searchParams.getAll("sliders");
+  const [selectedSliders, setSelectedSliders] = useState(
+    sliders.length === 0 ? [0] : sliders
+  );
   const { fontColor, bgColor, mainColor, secondaryColor, colores } =
     useColorState();
 

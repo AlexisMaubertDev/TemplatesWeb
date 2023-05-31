@@ -7,6 +7,9 @@ export default function DrawerSections({
   setSelectedBanner,
   setSelectedHeader,
   setSelectedSection,
+  setSelectedFooter,
+  setSelectedForms,
+  setSelectedSliders,
 }) {
   return (
     <Drawer
@@ -30,6 +33,15 @@ export default function DrawerSections({
       </div>
       <div className={styles.itemContainer}>
         <Select
+          onChange={(value) => setSelectedFooter(value)}
+          defaultValue={0}
+          options={[{ value: 0, label: "Sin Pie de Página" }]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Pie de Página</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
           onChange={(value) => setSelectedBanner(value)}
           defaultValue={1}
           options={[
@@ -46,7 +58,7 @@ export default function DrawerSections({
           mode="multiple"
           allowClear
           onSelect={(value) =>
-            setSelectedSection((current) => [...current, value])
+            setSelectedFormularios((current) => [...current, value])
           }
           onDeselect={(value) =>
             setSelectedSection((current) => current.filter((x) => x !== value))
@@ -63,6 +75,42 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Secciones</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
+          mode="multiple"
+          allowClear
+          onSelect={(value) =>
+            setSelectedForms((current) => [...current, value])
+          }
+          onDeselect={(value) =>
+            setSelectedForms((current) => current.filter((x) => x !== value))
+          }
+          onClear={() => setSelectedForms([])}
+          defaultValue={0}
+          placeholder="Elegí los Sliders"
+          options={[{ value: 0, label: "Sin Sliders" }]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Sliders</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
+          mode="multiple"
+          allowClear
+          onSelect={(value) =>
+            setSelectedSliders((current) => [...current, value])
+          }
+          onDeselect={(value) =>
+            setSelectedSliders((current) => current.filter((x) => x !== value))
+          }
+          onClear={() => setSelectedSliders([])}
+          defaultValue={0}
+          placeholder="Elegí los formularios"
+          options={[{ value: 0, label: "Sin formularios" }]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Formularios</p>
       </div>
     </Drawer>
   );
