@@ -12,7 +12,7 @@
 }
 .containerBotones {
   position: fixed;
-  bottom: 12vh;
+  bottom: 18vh;
   left: 5px;
   display: flex;
   flex-direction: column;

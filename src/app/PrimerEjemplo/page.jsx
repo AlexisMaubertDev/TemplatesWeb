@@ -4,7 +4,8 @@ import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
 import styles from "./page.module.css";
 import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
 import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
-import WhatsApp from "./components/Whatsapp/Whatsapp";
+import WhatsApp from "./components/Buttons/Whatsapp/Whatsapp";
+import ScrollToTop from "./components/Buttons/scrollToTop/scrollToTop";
 import { useState } from "react";
 import { Button } from "antd";
 import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
@@ -26,13 +27,20 @@ export default function PrimerEjemplo() {
   const [selectedHeader, setSelectedHeader] = useState(
     searchParams.get("header") || 1
   );
+
   const [selectedBanner, setSelectedBanner] = useState(
     searchParams.get("banner") || 1
   );
+
   const [selectedFont, setSelectedFont] = useState("roboto");
   const sections = searchParams.getAll("section");
   const [selectedSection, setSelectedSection] = useState(
     sections.length === 0 ? [2] : sections
+  );
+
+  const buttons = searchParams.getAll("button");
+  const [selectedButtons, setSelectedButtons] = useState(
+    buttons.length === 0 ? [0] : buttons
   );
 
   const { fontColor, bgColor, mainColor, secondaryColor, colores } =
@@ -42,6 +50,7 @@ export default function PrimerEjemplo() {
 
   return (
     <div
+                                                        // FUENTES
       className={
         styles.bodyContainer +
         " " +
@@ -78,6 +87,7 @@ export default function PrimerEjemplo() {
             2: <CarouselTwo img={img} />,
           }[selectedBanner]
         }
+        
         {selectedSection.map((section) => {
           return {
             0: null,
@@ -108,6 +118,15 @@ export default function PrimerEjemplo() {
             ),
           }[section];
         })}
+        {
+          selectedButtons.includes(0) ? null : <aside>{selectedButtons.map((boton) => {
+            return{
+              0:null,
+              1:<WhatsApp numeroTelefono={1161746234} />,              
+              2:<ScrollToTop />  ,            
+            }[boton]
+          })}</aside> 
+        }
       </main>
       <aside>
         <DrawerColors
@@ -122,6 +141,7 @@ export default function PrimerEjemplo() {
           setSelectedHeader={setSelectedHeader}
           setSelectedBanner={setSelectedBanner}
           setSelectedSection={setSelectedSection}
+          setSelectedButtons={setSelectedButtons}
         />
         <div className={styles.containerBotones}>
           <Button
@@ -139,9 +159,6 @@ export default function PrimerEjemplo() {
             Secciones
           </Button>
         </div>
-      </aside>
-      <aside>
-        <WhatsApp numeroTelefono={1161746234} />
       </aside>
     </div>
   );
