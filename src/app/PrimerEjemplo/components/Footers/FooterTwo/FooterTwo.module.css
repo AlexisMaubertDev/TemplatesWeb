@@ -1,0 +1,40 @@
+.footerTwo{
+    height: 30vh;
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7rem;
+    gap: 1rem;
+}
+
+@media (max-width: 768px ){
+    .termsAndCopyTwo{
+        text-align: center;
+    }
+}
+
+.logoFooterTwo{
+    font-size: 2.7rem;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family:  'Merienda', cursive;
+  }
+  .logoFooterTwo span{
+    font-weight: bold;
+  }
+
+  .termsAndCopyTwo{
+    text-align: center;
+  }
+  
+  .terms{
+    text-align: center;
+  }
+
+  .copyTwo{
+    color: white;
+  }

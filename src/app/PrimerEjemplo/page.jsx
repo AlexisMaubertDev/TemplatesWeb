@@ -1,19 +1,46 @@
 "use client";
-import DrawerColors from "./components/Drawers/DrawerColors/DrawerColors";
-import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
-import styles from "./page.module.css";
-import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
-import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
-import WhatsApp from "./components/Buttons/Whatsapp/Whatsapp";
-import ScrollToTop from "./components/Buttons/scrollToTop/scrollToTop";
+
+// IMPORTS REACT Y NEXT 
 import { useState } from "react";
 import { Button } from "antd";
-import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
 import { useSearchParams } from "next/navigation";
+
+// DROWERS
+import DrawerColors from "./components/Drawers/DrawerColors/DrawerColors";
+import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
+
+// ESTILOS PAGE
+import styles from "./page.module.css";
+
+// HEADERS
+import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
+import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
+
+// BOTONES
+import WhatsApp from "./components/Buttons/Whatsapp/Whatsapp";
+import ScrollToTop from "./components/Buttons/scrollToTop/scrollToTop";
+
+// BANNER
+import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
 import CarouselTwo from "./components/Carousels/CarouselTwo/CarouselTwo";
+
+// SECCIONES
 import SectionOne from "./components/Sections/SectionOne/SectionOne";
 import SectionTwo from "./components/Sections/SectionTwo/SectionTwo";
 import SectionThree from "./components/Sections/SectionThree/SectionThree";
+
+//FORMS
+import FormOne from "./components/Forms/FormOne/FormOne";
+
+//SLIDERS
+
+
+//FOOTERS
+import FooterOne from "./components/Footers/FooterOne/FooterOne";
+import FooterTwo from "./components/Footers/FooterTwo/FooterTwo";
+
+
+// OTROS
 import useColorState from "./hook/useColorState";
 import useImg from "./hook/useImg";
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
@@ -154,6 +181,9 @@ export default function PrimerEjemplo() {
           setSelectedBanner={setSelectedBanner}
           setSelectedSection={setSelectedSection}
           setSelectedButtons={setSelectedButtons}
+          setSelectedFooter={setSelectedFooter}
+          setSelectedForms={setSelectedForms}
+          setSelectedSliders={setSelectedSliders}
         />
         <div className={styles.containerBotones}>
           <Button
