@@ -4,6 +4,7 @@ import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
 import styles from "./page.module.css";
 import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
 import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
+import WhatsApp from "./components/Whatsapp/Whatsapp";
 import { useState } from "react";
 import { Button } from "antd";
 import CarouselOne from "./components/Carousels/CarouselOne/CarouselOne";
@@ -138,6 +139,9 @@ export default function PrimerEjemplo() {
             Secciones
           </Button>
         </div>
+      </aside>
+      <aside>
+        <WhatsApp numeroTelefono={1161746234} />
       </aside>
     </div>
   );
