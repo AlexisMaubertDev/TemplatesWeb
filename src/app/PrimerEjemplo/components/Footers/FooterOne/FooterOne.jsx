@@ -1,20 +1,19 @@
+import Link from "next/link";
 import styles from "./FooterOne.module.css";
 
 const FooterOne = ({ children, red1, red2, red3 }) => {
   return (
-    <footer className="footerOne">
+    <footer className={styles.footerOne}>
       <div>
-        <nav className={styles.enlacesFooterOne}>{children}</nav>
+        <nav className={styles.enlacesFooter}>{children}</nav>
       </div>
       <div>
-        <p className={styles.logoFooterOne}>
-          Tu<span>Logo</span>
-        </p>
+        <p className={styles.logoFooter}>Logo</p>
       </div>
       <div className={styles.redesFooter}>
-        {red1}
-        {red2}
-        {red3}
+        <Link href={red1.link}>{red1.name}</Link>
+        <Link href={red2.link}>{red2.name}</Link>
+        <Link href={red3.link}>{red3.name}</Link>
       </div>
     </footer>
   );

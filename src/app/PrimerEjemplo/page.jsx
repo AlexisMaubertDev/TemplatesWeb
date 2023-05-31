@@ -9,7 +9,7 @@ import { useSearchParams } from "next/navigation";
 import DrawerColors from "./components/Drawers/DrawerColors/DrawerColors";
 import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
 
-// ESTILOS PAGE
+// ESTILOS
 import styles from "./page.module.css";
 
 // HEADERS
@@ -38,9 +38,11 @@ import FormOne from "./components/Forms/FormOne/FormOne";
 import FooterOne from "./components/Footers/FooterOne/FooterOne";
 import FooterTwo from "./components/Footers/FooterTwo/FooterTwo";
 
-// OTROS
+//HOOKS
 import useColorState from "./hook/useColorState";
 import useImg from "./hook/useImg";
+
+//FONTS
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
 
 export default function PrimerEjemplo() {
@@ -85,7 +87,6 @@ export default function PrimerEjemplo() {
 
   return (
     <div
-      // FUENTES
       className={
         styles.bodyContainer +
         " " +
@@ -143,9 +144,9 @@ export default function PrimerEjemplo() {
                 key={3}
                 titulo1={"Ubicación"}
                 titulo2={"No se que poner acá"}
-                parrafo1={"Tantos párrafos vas a poner"}
-                parrafo2={"lorem ipsum"}
-                parrafo3={"lorem ipsum"}
+                parrafo1={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
+                parrafo2={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
+                parrafo3={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
                 mapa={
                   "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d49866.050276885915!2d-71.50660211503384!3d-42.06531157655123!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sus!4v1685391286444!5m2!1ses-419!2sus"
                 }
@@ -170,7 +171,11 @@ export default function PrimerEjemplo() {
         {
           0: null,
           1: (
-            <FooterOne red1="a" red2="3" red3="c">
+            <FooterOne
+              red1={{ link: "www.facebook.com", name: "Facebook" }}
+              red2={{ link: "www.instagram.com", name: "Instagram" }}
+              red3={{ link: "www.twitter.com", name: "Twitter" }}
+            >
               <a>Opción 1</a>
               <a>Opción 2</a>
               <a>Opción 3</a>
@@ -178,10 +183,10 @@ export default function PrimerEjemplo() {
           ),
           2: (
             <FooterTwo
-              red1="a"
-              red2="3"
-              red3="c"
-              terms="d"
+              red1={{ link: "www.facebook.com", name: "Facebook" }}
+              red2={{ link: "www.instagram.com", name: "Instagram" }}
+              red3={{ link: "www.twitter.com", name: "Twitter" }}
+              terms="Terminos y condiciones"
               copy="Copyright © 1999-2023 NombreEmpresa"
             />
           ),

@@ -1,22 +1,19 @@
-import styles from './FooterTwo.module.css';
+import Link from "next/link";
+import styles from "./FooterTwo.module.css";
 
-const FooterTwo = ({red1, red2, red3, terms, copy}) => {
-
-
+const FooterTwo = ({ red1, red2, red3, terms, copy }) => {
   return (
     <footer className={styles.footerTwo}>
-        <div>
-            <p className={styles.logoFooterTwo}>Tu<span>Logo</span></p>
-        </div>
-        <div className={styles.redesFooter2}>
-          {red1}
-          {red2}
-          {red3}
-        </div>
-        <div className={styles.termsAndCopyTwo}>
-            {terms}
-            <p className={styles.copyTwo}>{copy}</p>
-        </div>
+      <p className={styles.logoFooter}>Logo</p>
+      <div className={styles.redesFooter}>
+        <Link href={red1.link}>{red1.name}</Link>
+        <Link href={red2.link}>{red2.name}</Link>
+        <Link href={red3.link}>{red3.name}</Link>
+      </div>
+      <div className={styles.termsAndCopy}>
+        {terms}
+        <p className={styles.copy}>{copy}</p>
+      </div>
     </footer>
   );
 };

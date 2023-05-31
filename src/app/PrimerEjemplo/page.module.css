@@ -4,7 +4,6 @@
   min-height: 100vh;
   position: relative;
   flex-direction: column;
-  padding-bottom: 2rem;
 }
 .mainContainer {
   display: flex;
@@ -20,13 +19,4 @@
 }
 .botonColor {
   width: auto;
-}
-
-@media (width < 768px) {
-  .bannerImage {
-    max-height: 50vh;
-  }
-  .firstSection {
-    width: 95%;
-  }
 }
