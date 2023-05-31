@@ -1,11 +1,11 @@
 "use client";
 
-// IMPORTS REACT Y NEXT 
+// IMPORTS REACT Y NEXT
 import { useState } from "react";
 import { Button } from "antd";
 import { useSearchParams } from "next/navigation";
 
-// DROWERS
+// DRAWERS
 import DrawerColors from "./components/Drawers/DrawerColors/DrawerColors";
 import DrawerSections from "./components/Drawers/DrawerSections/DrawerSections";
 
@@ -34,11 +34,9 @@ import FormOne from "./components/Forms/FormOne/FormOne";
 
 //SLIDERS
 
-
 //FOOTERS
 import FooterOne from "./components/Footers/FooterOne/FooterOne";
 import FooterTwo from "./components/Footers/FooterTwo/FooterTwo";
-
 
 // OTROS
 import useColorState from "./hook/useColorState";
@@ -155,18 +153,51 @@ export default function PrimerEjemplo() {
             ),
           }[section];
         })}
-        {selectedButtons.includes(0) ? null : (
-          <aside>
-            {selectedButtons.map((boton) => {
-              return {
-                0: null,
-                1: <WhatsApp numeroTelefono={1161746234} />,
-                2: <ScrollToTop />,
-              }[boton];
-            })}
-          </aside>
-        )}
+        {selectedForms.map((form) => {
+          return {
+            0: null,
+            1: (
+              <FormOne
+                titulo="Contacto"
+                parrafo1="Como podemos ayudarte"
+                parrafo2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."
+              />
+            ),
+          }[form];
+        })}
       </main>
+      {
+        {
+          0: null,
+          1: (
+            <FooterOne red1="a" red2="3" red3="c">
+              <a>Opción 1</a>
+              <a>Opción 2</a>
+              <a>Opción 3</a>
+            </FooterOne>
+          ),
+          2: (
+            <FooterTwo
+              red1="a"
+              red2="3"
+              red3="c"
+              terms="d"
+              copy="Copyright © 1999-2023 NombreEmpresa"
+            />
+          ),
+        }[selectedFooter]
+      }
+      {selectedButtons.includes(0) ? null : (
+        <aside>
+          {selectedButtons.map((boton) => {
+            return {
+              0: null,
+              1: <WhatsApp numeroTelefono={1161746234} />,
+              2: <ScrollToTop />,
+            }[boton];
+          })}
+        </aside>
+      )}
       <aside>
         <DrawerColors
           open={openColors}
