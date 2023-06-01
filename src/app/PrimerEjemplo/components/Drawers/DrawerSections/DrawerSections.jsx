@@ -32,19 +32,7 @@ export default function DrawerSections({
         />
         <p>Encabezado</p>
       </div>
-      <div className={styles.itemContainer}>
-        <Select
-          onChange={(value) => setSelectedFooter(value)}
-          defaultValue={0}
-          options={[
-            { value: 0, label: "Sin Pie de Página" },
-            { value: 1, label: "Pie de página con navegación" },
-            { value: 2, label: "Pie de página con CopyRight" },
-          ]}
-          style={{ minWidth: "50%" }}
-        />
-        <p>Pie de Página</p>
-      </div>
+
       <div className={styles.itemContainer}>
         <Select
           onChange={(value) => setSelectedBanner(value)}
@@ -141,6 +129,19 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Formularios</p>
+      </div>
+      <div className={styles.itemContainer}>
+        <Select
+          onChange={(value) => setSelectedFooter(value)}
+          defaultValue={0}
+          options={[
+            { value: 0, label: "Sin Pie de Página" },
+            { value: 1, label: "Pie de página con navegación" },
+            { value: 2, label: "Pie de página con CopyRight" },
+          ]}
+          style={{ minWidth: "50%" }}
+        />
+        <p>Pie de Página</p>
       </div>
     </Drawer>
   );

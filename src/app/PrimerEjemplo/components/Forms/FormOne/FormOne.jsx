@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "./Formulario.module.css";
 
-const FormOne = ({ titulo, parrafo1, parrafo2 }) => {
+const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor }) => {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [asunto, setAsunto] = useState("");
@@ -31,10 +31,14 @@ const FormOne = ({ titulo, parrafo1, parrafo2 }) => {
   };
 
   return (
-    <div className={styles.FormContainer}>
+    <div className={styles.FormOneContainer}>
       <div className={styles.textoForm}>
         <h3>{titulo}</h3>
-        <p>{parrafo1}</p>
+        <p 
+          style={{
+            color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+          }}
+        >{parrafo1}</p>
         <p>{parrafo2}</p>
       </div>
 

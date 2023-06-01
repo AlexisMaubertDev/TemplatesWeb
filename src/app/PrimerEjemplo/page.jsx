@@ -162,6 +162,7 @@ export default function PrimerEjemplo() {
                 titulo="Contacto"
                 parrafo1="Como podemos ayudarte"
                 parrafo2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."
+                color={mainColor}
               />
             ),
           }[form];
@@ -224,17 +225,17 @@ export default function PrimerEjemplo() {
         <div className={styles.containerBotones}>
           <Button
             type="primary"
-            onClick={() => setOpenColors(true)}
-            className={styles.botonColor}
-          >
-            Personalizar
-          </Button>
-          <Button
-            type="primary"
             onClick={() => setOpenSections(true)}
             className={styles.botonColor}
           >
             Secciones
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => setOpenColors(true)}
+            className={styles.botonColor}
+          >
+            Personalizar
           </Button>
         </div>
       </aside>

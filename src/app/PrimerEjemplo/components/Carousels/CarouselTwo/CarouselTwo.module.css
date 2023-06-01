@@ -1,6 +1,6 @@
 .bannerImage {
   width: auto;
-  max-height: 80vh;
+  max-height: 91.5vh;
   object-fit: cover;
 }
 @media (width < 768px) {

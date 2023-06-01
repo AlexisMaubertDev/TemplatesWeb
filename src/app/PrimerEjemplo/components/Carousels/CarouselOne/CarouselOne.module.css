@@ -1,12 +1,12 @@
 .thumbnailImage {
   width: 100%;
-  height: 210px;
+  height: 160px;
   object-fit: cover;
   cursor: pointer;
 }
 .bannerImage {
   width: auto;
-  height: 851px;
+  height: 652px;
   object-fit: cover;
 }
 @media (width <= 1024px) {
