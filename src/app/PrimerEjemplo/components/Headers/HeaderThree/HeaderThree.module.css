@@ -1,0 +1,106 @@
+.header {
+  
+  background-image:url('/img/img2.jpg') ;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  background-size: cover;
+  height: 100vh;
+  background-position: center center;
+}
+  
+.header .nav{
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  position: relative;
+  gap: 2rem;
+}
+
+.redes{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2rem;
+  gap: 2rem;
+  margin-right: 1rem;
+}
+
+.logo{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.7rem;
+  color: white;
+  right: 50%;
+  left: 50%;
+  top: 20%;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family:  'Merienda', cursive;
+}
+.logo span{
+  font-weight: bold;
+}
+
+.hamburgerIcon{
+  display: flex;
+  color: wheat;
+  cursor: pointer;
+
+}
+
+.mobile{
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 15rem;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1.5rem;
+  
+}
+.mobile {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: aparecer 0.5s ease-in-out forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile2 {
+  opacity: 1;
+  transform: translateX(0);
+  animation: desaparecer 0.5s ease-in-out forwards;
+}
+
+@keyframes desaparecer {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.hamurguesa{
+  margin: 0;
+  padding: 1rem;
+  cursor: pointer;
+}

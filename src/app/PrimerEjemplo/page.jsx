@@ -15,6 +15,8 @@ import styles from "./page.module.css";
 // HEADERS
 import HeaderOne from "./components/Headers/HeaderOne/HeaderOne";
 import HeaderTwo from "./components/Headers/HeaderTwo/HeaderTwo";
+import HeaderThree from "./components/Headers/HeaderThree/HeaderThree";
+
 
 // BOTONES
 import WhatsApp from "./components/Buttons/Whatsapp/Whatsapp";
@@ -42,8 +44,10 @@ import FooterTwo from "./components/Footers/FooterTwo/FooterTwo";
 import useColorState from "./hook/useColorState";
 import useImg from "./hook/useImg";
 
-//FONTS
+//FONTS y otros
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
+import { GrTwitter, GrFacebookOption,GrInstagram } from "react-icons/gr";
+
 
 export default function PrimerEjemplo() {
   const searchParams = useSearchParams();
@@ -107,6 +111,15 @@ export default function PrimerEjemplo() {
           0: null,
           1: <HeaderOne color={mainColor} />,
           2: <HeaderTwo color={mainColor} />,
+          3: <HeaderThree  
+          red1={{ link: "www.facebook.com", name: <GrTwitter/> }}
+          red2={{ link: "www.facebook.com", name: <GrFacebookOption/> }}
+          red3={{ link: "www.facebook.com", name: <GrInstagram/> }}
+          color={mainColor} > 
+          <a href="">OpcionA</a>
+          <a href="">OpcionB</a>
+          <a href="">OpcionC</a>
+          </HeaderThree>,
         }[selectedHeader]
       }
       <main
