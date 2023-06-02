@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "./Formulario.module.css";
 
-const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor }) => {
+const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor,secondaryColor }) => {
   const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [asunto, setAsunto] = useState("");
@@ -31,15 +31,23 @@ const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor 
   };
 
   return (
-    <div className={styles.FormOneContainer}>
+    <div className={styles.FormOneContainer}  style={{
+                                                backgroundColor: `rgb(${secondaryColor.metaColor.r}, ${secondaryColor.metaColor.g}, ${secondaryColor.metaColor.b})`,
+                                              }}>
       <div className={styles.textoForm}>
-        <h3>{titulo}</h3>
+        <h3   style={{
+               color: `rgb(${fontColor.metaColor.r}, ${fontColor.metaColor.g}, ${fontColor.metaColor.b})`,
+              }}
+        >{titulo}</h3>
         <p 
           style={{
             color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
           }}
         >{parrafo1}</p>
-        <p>{parrafo2}</p>
+        <p           style={{
+                      color: `rgb(${fontColor.metaColor.r}, ${fontColor.metaColor.g}, ${fontColor.metaColor.b})`,
+                    }}
+          >{parrafo2}</p>
       </div>
 
       <div className={styles.FormForm}>
@@ -47,7 +55,9 @@ const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor 
           <div className={styles.nombreCorreo}>
             <div>
               <label htmlFor="nombre"></label>
-              <input
+              <input style={{
+                      color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+                     }}
                 type="text"
                 id="nombre"
                 placeholder="Nombre"
@@ -57,7 +67,9 @@ const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor 
             </div>
             <div>
               <label htmlFor="correo"></label>
-              <input
+              <input           style={{
+                                color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+                               }}
                 type="email"
                 id="correo"
                 placeholder="Tu Correo"
@@ -69,7 +81,9 @@ const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor 
 
           <div>
             <label htmlFor="asunto"></label>
-            <input
+            <input           style={{
+                              color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+                             }}
               type="text"
               id="asunto"
               placeholder="Asunto del Correo"
@@ -79,14 +93,18 @@ const FormOne = ({ titulo, parrafo1, parrafo2, color, fontColor, secondaryColor 
           </div>
           <div>
             <label htmlFor="mensaje"></label>
-            <textarea
+            <textarea           style={{
+                                  color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+                                }}
               id="mensaje"
               placeholder="Dejanos tu mensaje"
               value={mensaje}
               onChange={(e) => setMensaje(e.target.value)}
             ></textarea>
           </div>
-          <button className={styles.buttonForm} type="submit">
+          <button  className={styles.buttonForm} type="submit"   style={{
+                                                                   color: `rgb(${color.metaColor.r}, ${color.metaColor.g}, ${color.metaColor.b})`,
+                                                                 }}>
             Enviar
           </button>
         </form>

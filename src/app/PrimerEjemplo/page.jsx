@@ -62,6 +62,7 @@ export default function PrimerEjemplo() {
   );
 
   const [selectedFont, setSelectedFont] = useState("roboto");
+  
   const sections = searchParams.getAll("section");
   const [selectedSection, setSelectedSection] = useState(
     sections.length === 0 ? [2] : sections
@@ -143,10 +144,10 @@ export default function PrimerEjemplo() {
                 secondaryColor={mainColor}
                 key={3}
                 titulo1={"Ubicación"}
-                titulo2={"No se que poner acá"}
-                parrafo1={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
-                parrafo2={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
-                parrafo3={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."}
+                parrafo1={"Avenida Siempre Viva 123"}
+                titulo2={"Horarios"}
+                parrafo2={"Lunes a Viernes de 9hs a 18hs"}
+                parrafo3={"Sabados de 9hs a 13hs"}
                 mapa={
                   "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d49866.050276885915!2d-71.50660211503384!3d-42.06531157655123!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2sus!4v1685391286444!5m2!1ses-419!2sus"
                 }
@@ -160,9 +161,12 @@ export default function PrimerEjemplo() {
             1: (
               <FormOne
                 titulo="Contacto"
-                parrafo1="Como podemos ayudarte"
+                parrafo1="¿Como podemos ayudarte?"
                 parrafo2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."
                 color={mainColor}
+                fontColor={fontColor}
+                secondaryColor={bgColor}
+                
               />
             ),
           }[form];
