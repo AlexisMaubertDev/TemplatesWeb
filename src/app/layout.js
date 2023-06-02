@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Crea tu propia página",
-  description: "Podés elegir los elementos que quieras!",
+  title: "Oasis Web Design",
+  description: "Alexis, Agustin y Marcos",
 };
 
 export default function RootLayout({ children }) {
