@@ -6,9 +6,13 @@
   background-color: #e6e4e4;
   margin: 5px auto;
   align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
-.itemContainer p {
+.itemContainer h2 {
   color: #333;
   font-weight: 500;
-  margin: 0 10px;
+}
+.itemContainer h3 {
+  color: #333;
 }

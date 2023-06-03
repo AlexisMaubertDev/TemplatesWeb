@@ -1,6 +1,10 @@
+import styled from "styled-components";
 import styles from "./HeaderOne.module.css";
 
-export default function HeaderOne({ color }) {
+export default function HeaderOne({ color, hoverStyle }) {
+  const Link = styled.a`
+    ${hoverStyle}
+  `;
   return (
     <header
       className={styles.containerHeader}
@@ -9,12 +13,11 @@ export default function HeaderOne({ color }) {
       }}
     >
       <div className={styles.logo}>LOGO</div>
+
       <nav className={styles.containerNav}>
-        <ul>
-          <li>Opcion 1</li>
-          <li>Opcion 2</li>
-          <li>Opcion 3</li>
-        </ul>
+        <Link>link1</Link>
+        <Link>link2</Link>
+        <Link>link3</Link>
       </nav>
     </header>
   );

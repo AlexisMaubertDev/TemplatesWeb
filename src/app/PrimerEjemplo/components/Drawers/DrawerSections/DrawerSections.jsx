@@ -1,41 +1,85 @@
 import { Drawer, Select } from "antd";
 import styles from "./DrawerSections.module.css";
+import useHoverStyle from "@/app/PrimerEjemplo/hook/useHoverStyles";
 
 export default function DrawerSections({
   open,
   onClose,
-  setSelectedBanner,
-  setSelectedHeader,
-  setSelectedSection,
-  setSelectedFooter,
-  setSelectedForms,
-  setSelectedSliders,
-  setSelectedButtons,
+  //setSelectedBanner,
+  //setSelectedHeader,
+  //setSelectedSection,
+  //setSelectedFooter,
+  //setSelectedForms,
+  //setSelectedSliders,
+  //setSelectedButtons,
+  //setSelectedHoverStyle,
+  setSelectedModules,
 }) {
+  const { hoverTransitionUnderLine } = useHoverStyle();
   return (
     <Drawer
       title="Personalizá la página como desees"
-      placement="right"
+      placement="left"
       onClose={onClose}
       open={open}
     >
       <div className={styles.itemContainer}>
+        <h2>Encabezado</h2>
         <Select
-          onChange={(value) => setSelectedHeader(value)}
+          onChange={(value) =>
+            setSelectedModules((current) => ({
+              ...current,
+              ...{
+                header: {
+                  selected: value,
+                },
+              },
+            }))
+          }
           defaultValue={1}
           options={[
             { value: 0, label: "Sin cabecera" },
             { value: 1, label: "Separados" },
             { value: 2, label: "Logo en medio" },
           ]}
-          style={{ minWidth: "50%" }}
+          style={{ minWidth: "100%" }}
         />
-        <p>Encabezado</p>
+        <h3>Estilo</h3>
+        <Select
+          onChange={(value) =>
+            setSelectedModules((current) => ({
+              ...current,
+              header: {
+                ...current.header,
+                hover: value,
+              },
+            }))
+          }
+          defaultValue={null}
+          options={[
+            { value: null, label: "Sin Estilo" },
+            {
+              value: hoverTransitionUnderLine,
+              label: "Subrayado desde la izquierda",
+            },
+            { value: 2, label: "Logo en medio" },
+          ]}
+          style={{ minWidth: "100%" }}
+        />
       </div>
 
       <div className={styles.itemContainer}>
         <Select
-          onChange={(value) => setSelectedBanner(value)}
+          onChange={(value) =>
+            setSelectedModules((current) => ({
+              ...current,
+              ...{
+                banner: {
+                  selected: value,
+                },
+              },
+            }))
+          }
           defaultValue={1}
           options={[
             { value: 0, label: "Sin Banner" },
@@ -51,12 +95,35 @@ export default function DrawerSections({
           mode="multiple"
           allowClear
           onSelect={(value) =>
-            setSelectedSection((current) => [...current, value])
+            setSelectedModules((current) => ({
+              ...current,
+              sections: {
+                ...current.sections,
+                selected: current.sections.selected.concat(value),
+              },
+            }))
           }
+          // onSelect={(value) =>
+          //   setSelectedSection((current) => [...current, value])
+          // }
           onDeselect={(value) =>
-            setSelectedSection((current) => current.filter((x) => x !== value))
+            setSelectedModules((current) => ({
+              ...current,
+              sections: {
+                ...current.sections,
+                selected: current.sections.selected.filter((x) => x !== value),
+              },
+            }))
           }
-          onClear={() => setSelectedSection([])}
+          // onDeselect={(value) =>
+          //   setSelectedSection((current) => current.filter((x) => x !== value))
+          // }
+          onClear={() =>
+            setSelectedModules((current) => ({
+              ...current,
+              sections: { ...current, selected: [] },
+            }))
+          }
           defaultValue={2}
           placeholder="Elegí las secciones"
           options={[
@@ -69,7 +136,7 @@ export default function DrawerSections({
         />
         <p>Secciones</p>
       </div>
-      <div className={styles.itemContainer}>
+      {/* <div className={styles.itemContainer}>
         <Select
           mode="multiple"
           allowClear
@@ -129,10 +196,15 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Formularios</p>
-      </div>
+      </div> */}
       <div className={styles.itemContainer}>
         <Select
-          onChange={(value) => setSelectedFooter(value)}
+          onChange={(value) =>
+            setSelectedModules((current) => ({
+              ...current,
+              ...{ footer: value },
+            }))
+          }
           defaultValue={0}
           options={[
             { value: 0, label: "Sin Pie de Página" },

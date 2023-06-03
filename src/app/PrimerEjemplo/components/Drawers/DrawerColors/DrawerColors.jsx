@@ -13,7 +13,7 @@ export default function DrawerColors({
   return (
     <Drawer
       title="Personalizá los colores como desees"
-      placement="right"
+      placement="left"
       onClose={onClose}
       open={open}
     >

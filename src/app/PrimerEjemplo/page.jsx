@@ -46,45 +46,101 @@ import useImg from "./hook/useImg";
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
 
 export default function PrimerEjemplo() {
+  const { fontColor, bgColor, mainColor, secondaryColor, colores } =
+    useColorState();
+  const { img, img2, sqrImg } = useImg();
   const searchParams = useSearchParams();
 
   const [openColors, setOpenColors] = useState(false);
   const [openSections, setOpenSections] = useState(false);
 
-  const [selectedHeader, setSelectedHeader] = useState(
-    searchParams.get("header") || 1
-  );
-  const [selectedFooter, setSelectedFooter] = useState(
-    searchParams.get("footer") || 1
-  );
-  const [selectedBanner, setSelectedBanner] = useState(
-    searchParams.get("banner") || 1
-  );
-
   const [selectedFont, setSelectedFont] = useState("roboto");
-  
-  const sections = searchParams.getAll("section");
-  const [selectedSection, setSelectedSection] = useState(
-    sections.length === 0 ? [2] : sections
-  );
 
-  const forms = searchParams.getAll("forms");
-  const [selectedForms, setSelectedForms] = useState(
-    forms.length === 0 ? [0] : forms
-  );
-  const sliders = searchParams.getAll("sliders");
-  const [selectedSliders, setSelectedSliders] = useState(
-    sliders.length === 0 ? [0] : sliders
-  );
-  const buttons = searchParams.getAll("button");
-  const [selectedButtons, setSelectedButtons] = useState(
-    buttons.length === 0 ? [0] : buttons
-  );
+  const [selectedModules, setSelectedModules] = useState({
+    header: {
+      selected: searchParams.get("header") || 1,
+      bgColor,
+      fontColor,
+      mainColor,
+      hover: null,
+    },
+    footer: {
+      selected: searchParams.get("footer") || 1,
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+    banner: {
+      selected: searchParams.get("banner") || 1,
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+    sections: {
+      selected:
+        searchParams.getAll("section").length === 0
+          ? [2]
+          : searchParams.getAll("section"),
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+    forms: {
+      selected:
+        searchParams.getAll("forms").length === 0
+          ? [2]
+          : searchParams.getAll("forms"),
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+    sliders: {
+      selected:
+        searchParams.getAll("sliders").length === 0
+          ? [2]
+          : searchParams.getAll("sliders"),
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+    buttons: {
+      selected:
+        searchParams.getAll("button").length === 0
+          ? [2]
+          : searchParams.getAll("button"),
+      bgColor,
+      fontColor,
+      mainColor,
+    },
+  });
 
-  const { fontColor, bgColor, mainColor, secondaryColor, colores } =
-    useColorState();
+  // const [selectedHeader, setSelectedHeader] = useState(
+  //   searchParams.get("header") || 1
+  // );
+  // const [selectedFooter, setSelectedFooter] = useState(
+  //   searchParams.get("footer") || 1
+  // );
+  // const [selectedBanner, setSelectedBanner] = useState(
+  //   searchParams.get("banner") || 1
+  // );
 
-  const { img, img2, sqrImg } = useImg();
+  // const [selectedHoverStyle, setSelectedHoverStyle] = useState({});
+  // const sections = searchParams.getAll("section");
+  // const [selectedSection, setSelectedSection] = useState(
+  //   sections.length === 0 ? [2] : sections
+  // );
+  // const forms = searchParams.getAll("forms");
+  // const [selectedForms, setSelectedForms] = useState(
+  //   forms.length === 0 ? [0] : forms
+  // );
+  // const sliders = searchParams.getAll("sliders");
+  // const [selectedSliders, setSelectedSliders] = useState(
+  //   sliders.length === 0 ? [0] : sliders
+  // );
+  // const buttons = searchParams.getAll("button");
+  // const [selectedButtons, setSelectedButtons] = useState(
+  //   buttons.length === 0 ? [0] : buttons
+  // );
 
   return (
     <div
@@ -105,14 +161,20 @@ export default function PrimerEjemplo() {
       {
         {
           0: null,
-          1: <HeaderOne color={mainColor} />,
+          1: (
+            <HeaderOne
+              color={mainColor}
+              hoverStyle={selectedModules.header.hover}
+            />
+          ),
           2: <HeaderTwo color={mainColor} />,
-        }[selectedHeader]
+        }[selectedModules.header.selected]
       }
       <main
         className={styles.mainContainer}
         style={
-          selectedHeader != 0 && selectedHeader != 3
+          selectedModules.header.selected != 0 &&
+          selectedModules.header.selected != 3
             ? { marginTop: "64px" }
             : null
         }
@@ -122,26 +184,32 @@ export default function PrimerEjemplo() {
             0: null,
             1: <CarouselOne img={img} />,
             2: <CarouselTwo img={img} />,
-          }[selectedBanner]
+          }[selectedModules.banner.selected]
         }
 
-        {selectedSection.map((section) => {
+        {selectedModules.sections.selected.map((section) => {
           return {
             0: null,
-            1: <SectionOne color={secondaryColor} img={img2} key={1} />,
+            1: (
+              <SectionOne
+                color={selectedModules.sections.bgColor}
+                img={img2}
+                key={1}
+              />
+            ),
             2: (
               <SectionTwo
-                color={mainColor}
-                fontColor={fontColor}
-                secondaryColor={secondaryColor}
+                color={selectedModules.sections.bgColor}
+                fontColor={selectedModules.sections.fontColor}
+                secondaryColor={selectedModules.sections.mainColor}
                 img={sqrImg}
                 key={2}
               />
             ),
             3: (
               <SectionThree
-                color={secondaryColor}
-                secondaryColor={mainColor}
+                color={selectedModules.sections.mainColor}
+                secondaryColor={selectedModules.sections.bgColor}
                 key={3}
                 titulo1={"Ubicación"}
                 parrafo1={"Avenida Siempre Viva 123"}
@@ -155,7 +223,7 @@ export default function PrimerEjemplo() {
             ),
           }[section];
         })}
-        {selectedForms.map((form) => {
+        {selectedModules.forms.selected.map((form) => {
           return {
             0: null,
             1: (
@@ -163,13 +231,12 @@ export default function PrimerEjemplo() {
                 titulo="Contacto"
                 parrafo1="¿Como podemos ayudarte?"
                 parrafo2="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus, doloremque expedita possimus dicta fugit animi, molestias optio minima repellat modi ipsa omnis, totam itaque perspiciatis sit atque quod cupiditate."
-                color={mainColor}
-                fontColor={fontColor}
-                secondaryColor={bgColor}
-                
+                color={selectedModules.forms.mainColor}
+                fontColor={selectedModules.forms.fontColor}
+                secondaryColor={selectedModules.forms.bgColor}
               />
             ),
-          }[form];
+          }[selectedModules.forms.selected];
         })}
       </main>
       {
@@ -195,16 +262,16 @@ export default function PrimerEjemplo() {
               copy="Copyright © 1999-2023 NombreEmpresa"
             />
           ),
-        }[selectedFooter]
+        }[selectedModules.footer.selected]
       }
-      {selectedButtons.includes(0) ? null : (
+      {selectedModules.buttons.selected.includes(0) ? null : (
         <aside>
-          {selectedButtons.map((boton) => {
+          {selectedModules.buttons.selected.map((boton) => {
             return {
               0: null,
               1: <WhatsApp numeroTelefono={1161746234} />,
               2: <ScrollToTop />,
-            }[boton];
+            }[selectedModules.buttons.selected];
           })}
         </aside>
       )}
@@ -218,13 +285,15 @@ export default function PrimerEjemplo() {
         <DrawerSections
           open={openSections}
           onClose={() => setOpenSections(false)}
-          setSelectedHeader={setSelectedHeader}
-          setSelectedBanner={setSelectedBanner}
-          setSelectedSection={setSelectedSection}
-          setSelectedButtons={setSelectedButtons}
-          setSelectedFooter={setSelectedFooter}
-          setSelectedForms={setSelectedForms}
-          setSelectedSliders={setSelectedSliders}
+          //setSelectedBanner={setSelectedBanner}
+          //setSelectedSection={setSelectedSection}
+          //setSelectedButtons={setSelectedButtons}
+          // setSelectedHeader={setSelectedHeader}
+          // setSelectedFooter={setSelectedFooter}
+          //setSelectedForms={setSelectedForms}
+          //setSelectedSliders={setSelectedSliders}
+          //setSelectedHoverStyle={setSelectedHoverStyle}
+          setSelectedModules={setSelectedModules}
         />
         <div className={styles.containerBotones}>
           <Button
