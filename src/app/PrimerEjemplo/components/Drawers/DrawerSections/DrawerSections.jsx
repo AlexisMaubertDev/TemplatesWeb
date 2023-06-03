@@ -41,7 +41,7 @@ export default function DrawerSections({
             { value: 0, label: "Sin cabecera" },
             { value: 1, label: "Separados" },
             { value: 2, label: "Logo en medio" },
-            { value: 3, label: "Con banner no fixed" },
+            { value: 3, label: "Con banner" },
           ]}
           style={{ minWidth: "100%" }}
         />

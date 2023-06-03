@@ -45,6 +45,7 @@ import useImg from "./hook/useImg";
 
 //FONTS y otros
 import { roboto, boogaloo, enriqueta } from "./fonts/fonts";
+import { GrTwitter, GrFacebookOption, GrInstagram } from "react-icons/gr";
 
 export default function PrimerEjemplo() {
   const { fontColor, bgColor, mainColor, secondaryColor, colores } =
