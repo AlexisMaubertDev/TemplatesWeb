@@ -1,7 +1,7 @@
 "use client";
 
 // IMPORTS REACT Y NEXT
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "antd";
 import { useSearchParams } from "next/navigation";
 
@@ -116,33 +116,18 @@ export default function PrimerEjemplo() {
     },
   });
 
-  // const [selectedHeader, setSelectedHeader] = useState(
-  //   searchParams.get("header") || 1
-  // );
-  // const [selectedFooter, setSelectedFooter] = useState(
-  //   searchParams.get("footer") || 1
-  // );
-  // const [selectedBanner, setSelectedBanner] = useState(
-  //   searchParams.get("banner") || 1
-  // );
-
-  // const [selectedHoverStyle, setSelectedHoverStyle] = useState({});
-  // const sections = searchParams.getAll("section");
-  // const [selectedSection, setSelectedSection] = useState(
-  //   sections.length === 0 ? [2] : sections
-  // );
-  // const forms = searchParams.getAll("forms");
-  // const [selectedForms, setSelectedForms] = useState(
-  //   forms.length === 0 ? [0] : forms
-  // );
-  // const sliders = searchParams.getAll("sliders");
-  // const [selectedSliders, setSelectedSliders] = useState(
-  //   sliders.length === 0 ? [0] : sliders
-  // );
-  // const buttons = searchParams.getAll("button");
-  // const [selectedButtons, setSelectedButtons] = useState(
-  //   buttons.length === 0 ? [0] : buttons
-  // );
+  useEffect(() => {
+    if (selectedModules.header.selected === 3) {
+      setSelectedModules((current) => ({
+        ...current,
+        ...{
+          banner: {
+            selected: 0,
+          },
+        },
+      }));
+    }
+  }, [selectedModules]);
 
   return (
     <div
@@ -172,9 +157,9 @@ export default function PrimerEjemplo() {
           2: <HeaderTwo color={mainColor} />,
           3: (
             <HeaderThree
-              red1={{ link: "www.facebook.com", name: <GrTwitter /> }}
+              red1={{ link: "www.twitter.com", name: <GrTwitter /> }}
               red2={{ link: "www.facebook.com", name: <GrFacebookOption /> }}
-              red3={{ link: "www.facebook.com", name: <GrInstagram /> }}
+              red3={{ link: "www.instagram.com", name: <GrInstagram /> }}
               color={mainColor}
             >
               <a href="">OpcionA</a>
