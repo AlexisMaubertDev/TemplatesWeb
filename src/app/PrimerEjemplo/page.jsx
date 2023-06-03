@@ -270,7 +270,7 @@ export default function PrimerEjemplo() {
               0: null,
               1: <WhatsApp numeroTelefono={1161746234} />,
               2: <ScrollToTop />,
-            }[selectedModules.buttons.selected];
+            }[boton];
           })}
         </aside>
       )}
@@ -284,14 +284,6 @@ export default function PrimerEjemplo() {
         <DrawerSections
           open={openSections}
           onClose={() => setOpenSections(false)}
-          //setSelectedBanner={setSelectedBanner}
-          //setSelectedSection={setSelectedSection}
-          //setSelectedButtons={setSelectedButtons}
-          // setSelectedHeader={setSelectedHeader}
-          // setSelectedFooter={setSelectedFooter}
-          //setSelectedForms={setSelectedForms}
-          //setSelectedSliders={setSelectedSliders}
-          //setSelectedHoverStyle={setSelectedHoverStyle}
           setSelectedModules={setSelectedModules}
         />
         <div className={styles.containerBotones}>

@@ -104,9 +104,6 @@ export default function DrawerSections({
               },
             }))
           }
-          // onSelect={(value) =>
-          //   setSelectedSection((current) => [...current, value])
-          // }
           onDeselect={(value) =>
             setSelectedModules((current) => ({
               ...current,
@@ -116,9 +113,6 @@ export default function DrawerSections({
               },
             }))
           }
-          // onDeselect={(value) =>
-          //   setSelectedSection((current) => current.filter((x) => x !== value))
-          // }
           onClear={() =>
             setSelectedModules((current) => ({
               ...current,
@@ -137,17 +131,34 @@ export default function DrawerSections({
         />
         <p>Secciones</p>
       </div>
-      {/* <div className={styles.itemContainer}>
+      <div className={styles.itemContainer}>
         <Select
           mode="multiple"
           allowClear
           onSelect={(value) =>
-            setSelectedButtons((current) => [...current, value])
+            setSelectedModules((current) => ({
+              ...current,
+              buttons: {
+                ...current.buttons,
+                selected: current.buttons.selected.concat(value),
+              },
+            }))
           }
           onDeselect={(value) =>
-            setSelectedButtons((current) => current.filter((x) => x !== value))
+            setSelectedModules((current) => ({
+              ...current,
+              buttons: {
+                ...current.buttons,
+                selected: current.buttons.selected.filter((x) => x !== value),
+              },
+            }))
           }
-          onClear={() => setSelectedButtons([])}
+          onClear={() =>
+            setSelectedModules((current) => ({
+              ...current,
+              buttons: { ...current, selected: [] },
+            }))
+          }
           defaultValue={0}
           placeholder="Elegí los botones"
           options={[
@@ -159,6 +170,7 @@ export default function DrawerSections({
         />
         <p>Botones</p>
       </div>
+      {/*
       <div className={styles.itemContainer}>
         <Select
           mode="multiple"
