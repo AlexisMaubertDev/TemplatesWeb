@@ -5,14 +5,7 @@ import useHoverStyle from "@/app/PrimerEjemplo/hook/useHoverStyles";
 export default function DrawerSections({
   open,
   onClose,
-  //setSelectedBanner,
-  //setSelectedHeader,
-  //setSelectedSection,
-  //setSelectedFooter,
-  //setSelectedForms,
-  //setSelectedSliders,
-  //setSelectedButtons,
-  //setSelectedHoverStyle,
+  selectedModules,
   setSelectedModules,
 }) {
   const { hoverTransitionUnderLine } = useHoverStyle();
@@ -36,7 +29,7 @@ export default function DrawerSections({
               },
             }))
           }
-          defaultValue={1}
+          defaultValue={selectedModules.header.selected}
           options={[
             { value: 0, label: "Sin cabecera" },
             { value: 1, label: "Separados" },
@@ -56,9 +49,9 @@ export default function DrawerSections({
               },
             }))
           }
-          defaultValue={null}
+          defaultValue={selectedModules.header.hover}
           options={[
-            { value: null, label: "Sin Estilo" },
+            { value: 0, label: "Sin Estilo" },
             {
               value: hoverTransitionUnderLine,
               label: "Subrayado desde la izquierda",
@@ -81,7 +74,7 @@ export default function DrawerSections({
               },
             }))
           }
-          defaultValue={1}
+          defaultValue={selectedModules.banner.selected}
           options={[
             { value: 0, label: "Sin Banner" },
             { value: 1, label: "Carrusel e imágenes" },
@@ -119,7 +112,7 @@ export default function DrawerSections({
               sections: { ...current, selected: [] },
             }))
           }
-          defaultValue={2}
+          defaultValue={selectedModules.sections.selected}
           placeholder="Elegí las secciones"
           options={[
             { value: 0, label: "Sin secciones" },
@@ -159,7 +152,7 @@ export default function DrawerSections({
               buttons: { ...current, selected: [] },
             }))
           }
-          defaultValue={0}
+          defaultValue={selectedModules.buttons.selected}
           placeholder="Elegí los botones"
           options={[
             { value: 0, label: "Sin botones" },
@@ -170,19 +163,36 @@ export default function DrawerSections({
         />
         <p>Botones</p>
       </div>
-      {/*
+
       <div className={styles.itemContainer}>
         <Select
           mode="multiple"
           allowClear
           onSelect={(value) =>
-            setSelectedSliders((current) => [...current, value])
+            setSelectedModules((current) => ({
+              ...current,
+              sliders: {
+                ...current.sliders,
+                selected: current.sliders.selected.concat(value),
+              },
+            }))
           }
           onDeselect={(value) =>
-            setSelectedSliders((current) => current.filter((x) => x !== value))
+            setSelectedModules((current) => ({
+              ...current,
+              sliders: {
+                ...current.sliders,
+                selected: current.sliders.selected.filter((x) => x !== value),
+              },
+            }))
           }
-          onClear={() => setSelectedSliders([])}
-          defaultValue={0}
+          onClear={() =>
+            setSelectedModules((current) => ({
+              ...current,
+              sliders: { ...current, selected: [] },
+            }))
+          }
+          defaultValue={selectedModules.sliders.selected}
           placeholder="Elegí los Sliders"
           options={[{ value: 0, label: "Sin Sliders" }]}
           style={{ minWidth: "50%" }}
@@ -194,13 +204,30 @@ export default function DrawerSections({
           mode="multiple"
           allowClear
           onSelect={(value) =>
-            setSelectedForms((current) => [...current, value])
+            setSelectedModules((current) => ({
+              ...current,
+              forms: {
+                ...current.forms,
+                selected: current.forms.selected.concat(value),
+              },
+            }))
           }
           onDeselect={(value) =>
-            setSelectedForms((current) => current.filter((x) => x !== value))
+            setSelectedModules((current) => ({
+              ...current,
+              forms: {
+                ...current.forms,
+                selected: current.forms.selected.filter((x) => x !== value),
+              },
+            }))
           }
-          onClear={() => setSelectedForms([])}
-          defaultValue={0}
+          onClear={() =>
+            setSelectedModules((current) => ({
+              ...current,
+              forms: { ...current, selected: [] },
+            }))
+          }
+          defaultValue={selectedModules.footer.forms}
           placeholder="Elegí los formularios"
           options={[
             { value: 0, label: "Sin formularios" },
@@ -209,16 +236,20 @@ export default function DrawerSections({
           style={{ minWidth: "50%" }}
         />
         <p>Formularios</p>
-      </div> */}
+      </div>
       <div className={styles.itemContainer}>
         <Select
           onChange={(value) =>
             setSelectedModules((current) => ({
               ...current,
-              ...{ footer: value },
+              ...{
+                footer: {
+                  selected: value,
+                },
+              },
             }))
           }
-          defaultValue={0}
+          defaultValue={selectedModules.footer.selected}
           options={[
             { value: 0, label: "Sin Pie de Página" },
             { value: 1, label: "Pie de página con navegación" },

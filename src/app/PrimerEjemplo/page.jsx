@@ -90,7 +90,7 @@ export default function PrimerEjemplo() {
     forms: {
       selected:
         searchParams.getAll("forms").length === 0
-          ? [2]
+          ? [0]
           : searchParams.getAll("forms"),
       bgColor,
       fontColor,
@@ -99,7 +99,7 @@ export default function PrimerEjemplo() {
     sliders: {
       selected:
         searchParams.getAll("sliders").length === 0
-          ? [2]
+          ? [0]
           : searchParams.getAll("sliders"),
       bgColor,
       fontColor,
@@ -108,7 +108,7 @@ export default function PrimerEjemplo() {
     buttons: {
       selected:
         searchParams.getAll("button").length === 0
-          ? [2]
+          ? [0]
           : searchParams.getAll("button"),
       bgColor,
       fontColor,
@@ -284,6 +284,7 @@ export default function PrimerEjemplo() {
         <DrawerSections
           open={openSections}
           onClose={() => setOpenSections(false)}
+          selectedModules={selectedModules}
           setSelectedModules={setSelectedModules}
         />
         <div className={styles.containerBotones}>
